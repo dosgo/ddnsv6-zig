@@ -1,12 +1,11 @@
 const std = @import("std");
-const client = @import("requestz.zig").Client;
+const Client = @import("requestz").Client;
 pub fn main() anyerror!void {
-  
 
     var client = try Client.init(std.testing.allocator);
     defer client.deinit();
-    var response = try client.get("http://httpbin.org/get", .{});
+    var response = try client.get("http://www.baidu.com", .{});
     defer response.deinit();
-    std.debug.print("Hello, {s} {s}!\n", .{request.body},.{request.status});
+    std.debug.print("Hello, {s} !\n", .{response.body});
 
 }
