@@ -6,3 +6,4 @@ pkgs:
     source_url: "https://github.com/dosgo/ddnsv6-zig"
 deps:
   ducdetronquito/requestz: ^0.1.1
+  ducdetronquito/http: ^0.1.3

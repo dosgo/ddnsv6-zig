@@ -29,6 +29,11 @@ pub const pkgs = struct {
         },
     };
 
+    pub const http = std.build.Pkg{
+        .name = "http",
+        .path = .{ .path = ".gyro\\http-ducdetronquito-0.1.3-02dd386aa7452ba02887b98078627854\\pkg\\src\\main.zig" },
+    };
+
     pub fn addAllTo(artifact: *std.build.LibExeObjStep) void {
         @setEvalBranchQuota(1_000_000);
         inline for (std.meta.declarations(pkgs)) |decl| {
@@ -45,9 +50,11 @@ pub const exports = struct {
         .path = .{ .path = "src/main.zig" },
         .dependencies = &.{
             pkgs.requestz,
+            pkgs.http,
         },
     };
 };
 pub const base_dirs = struct {
     pub const requestz = ".gyro\\requestz-ducdetronquito-0.1.1-68845cbcc0c07d54a8cd287ad333ba84\\pkg";
+    pub const http = ".gyro\\http-ducdetronquito-0.1.3-02dd386aa7452ba02887b98078627854\\pkg";
 };

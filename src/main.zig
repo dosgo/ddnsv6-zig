@@ -1,11 +1,8 @@
 const std = @import("std");
-const Client = @import("requestz").Client;
+const Cloudflare = @import("cloudflare.zig").Cloudflare;
 pub fn main() anyerror!void {
-
-    var client = try Client.init(std.testing.allocator);
+    var client = try Cloudflare.init(std.testing.allocator,"dd","ddd","dd");
     defer client.deinit();
-    var response = try client.get("http://www.baidu.com", .{});
-    defer response.deinit();
-    std.debug.print("Hello, {s} !\n", .{response.body});
-
+    var xx=try client.get("ssd");
+     std.debug.print("cmd: {s}\n", .{xx});
 }
